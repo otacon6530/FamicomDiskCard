@@ -32,7 +32,7 @@ module hole(){
         cylinder(h = hub_thickness + 1, r = center_hole_radius, center = true);
 }
 
-module sideB() {
+module sideB(offset) {
     difference() {
         // Main circular hub
         cylinder(h = hub_thickness, r = hub_radius, center = true);  
@@ -63,11 +63,12 @@ module sideB() {
 module sideA() {
     translate([25, 0, 0]){ 
     translate([0, 0, -.5])
+    //spacer
     difference(){
         cylinder(h = 0.2, r = 14.5, center = true);
         hole();
         translate([0, 0, -hub_thickness])
-        sideB();
+        //sideB();
         //Center hole
         translate([0,0, 1])
         cylinder(h = hub_thickness*5, r = center_hole_radius+1.25, center = true);
@@ -82,8 +83,8 @@ module sideA() {
         //Center hole
         translate([0,0, 1])
         cylinder(h = hub_thickness*5, r = center_hole_radius+1.25, center = true);
-        translate([0,0, -1])
-            sideB();
+        translate([0, -center_hole_radius-1.2, hub_thickness])
+        cube([1.25,1.25,5], center = true);   
         }
     
     }

@@ -10,13 +10,18 @@ center_hole_radius = 2.8; // small center hole
 $fn = 100; // smoothness of round shapes
 
 module spacer(){
-    translate([0, 30, -.2])
+    translate([0, 30, -.2]){
     difference(){
         cylinder(h = 0.2, r = 14.5, center = true);
         hole();
-        translate([0, 0, -hub_thickness])
-        sideB();
+        cylinder(h = hub_thickness*5, r = center_hole_radius+1.25, center = true);
+    translate([0, -center_hole_radius-1.2, hub_thickness-1])
+    cube([1.25,1.25,1], center = true);
+        
     }
+    
+}
+    
 }
 
 module hole(){

@@ -3,7 +3,7 @@
 
 disk_diameter = 71;
 hub_hole_diameter = 11;
-jig_thickness = 5;
+jig_thickness = 2;
 jig_border = 10;
 alignment_hole_diameter = 3;
 alignment_hole_offset = 40;
